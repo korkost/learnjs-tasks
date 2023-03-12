@@ -1,0 +1,349 @@
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 10px auto;
+        width: 470px;
+      }
+
+      h3 {
+        margin: 0;
+        padding-bottom: 0.3em;
+        padding-right: 20px;
+        font-size: 1.1em;
+      }
+
+      p {
+        margin: 0;
+        padding: 0 0 0.5em;
+      }
+
+      .pane {
+        background: #edf5e1;
+        padding: 10px 20px 10px;
+        border-top: solid 2px #c4df9b;
+        position: relative;
+      }
+
+      .remove-button {
+        position: absolute;
+        font-size: 110%;
+        top: 0;
+        color: darkred;
+        right: 10px;
+        display: block;
+        width: 24px;
+        height: 24px;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+      }
+    </style>
+    <meta charset="utf-8" />
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="pane">
+        <h3>Лошадь</h3>
+        <p>
+          Домашняя лошадь - животное семейства непарнокопытных, одомашненный и
+          единственный сохранившийся подвид дикой лошади, вымершей в дикой
+          природе, за исключением небольшой популяции лошади Пржевальского.
+        </p>
+        <button class="remove-button">[x]</button>
+      </div>
+      <div class="pane">
+        <h3>Осёл</h3>
+        <p>
+          Домашний осёл или ишак — одомашненный подвид дикого осла, сыгравший
+          важную историческую роль в развитии хозяйства и культуры человека. Все
+          одомашненные ослы относятся к африканским ослам.
+        </p>
+        <button class="remove-button">[x]</button>
+      </div>
+      <div class="pane">
+        <h3>Кошка</h3>
+        <p>
+          Кошка, или домашняя кошка (лат. Félis silvéstris cátus), — домашнее
+          животное, одно из наиболее популярных (наряду с собакой)
+          "животных-компаньонов". С точки зрения научной систематики, домашняя
+          кошка — млекопитающее семейства кошачьих отряда хищных. Ранее домашнюю
+          кошку нередко рассматривали как отдельный биологический вид.
+        </p>
+        <button class="remove-button">[x]</button>
+      </div>
+    </div>
+
+    <script>
+      container.onclick = function (event) {
+        if (event.target.className != "remove-button") return;
+
+        let pane = event.target.closest(".pane");
+        pane.remove();
+      };
+    </script>
+  </body>
+</html> -->
+
+<!-- <!DOCTYPE HTML>
+<html>
+<head>
+  <style>
+    .tree span:hover {
+      font-weight: bold;
+    }
+
+    .tree span {
+      cursor: pointer;
+    }
+  </style>
+  <meta charset="utf-8">
+</head>
+
+<body>
+  <ul class="tree" id="tree">
+    <li>Животные
+      <ul>
+        <li>Млекопитающие
+          <ul>
+            <li>Коровы</li>
+            <li>Ослы</li>
+            <li>Собаки</li>
+            <li>Тигры</li>
+          </ul>
+        </li>
+        <li>Другие
+          <ul>
+            <li>Змеи</li>
+            <li>Птицы</li>
+            <li>Ящерицы</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>Рыбы
+      <ul>
+        <li>Аквариумные
+          <ul>
+            <li>Гуппи</li>
+            <li>Скалярии</li>
+          </ul>
+        </li>
+        <li>Морские
+          <ul>
+            <li>Морская форель</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <script>
+    // поместить все текстовые узлы в элемент <span>
+    // он занимает только то место, которое необходимо для текста
+    for (let li of tree.querySelectorAll('li')) {
+      let span = document.createElement('span');
+      li.prepend(span);
+      span.append(span.nextSibling); // поместить текстовый узел внутрь элемента <span>
+    }
+
+    //  ловим клики на всём дереве
+    tree.onclick = function(event) {
+
+      if (event.target.tagName != 'SPAN') {
+        return;
+      }
+
+      let childrenContainer = event.target.parentNode.querySelector('ul');
+      if (!childrenContainer) return; // нет детей
+
+      childrenContainer.hidden = !childrenContainer.hidden;
+    }
+  </script>
+
+</body>
+</html> -->
+
+<!-- 
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    table {
+       border-collapse: collapse;
+     }
+     th, td {
+       border: 1px solid black;
+       padding: 4px;
+     }
+     th {
+       cursor: pointer;
+     }
+     th:hover {
+       background: yellow;
+     }
+  </style>
+</head>
+
+<body>
+
+  <table id="grid">
+    <thead>
+      <tr>
+        <th data-type="number">Возраст</th>
+        <th data-type="string">Имя</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>5</td>
+        <td>Вася</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Петя</td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>Женя</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>Маша</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Илья</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+
+    grid.onclick = function(e) {
+      if (e.target.tagName != 'TH') return;
+
+      let th = e.target;
+      // если ячейка TH, тогда сортировать
+      // cellIndex - это номер ячейки th:
+      //   0 для первого столбца
+      //   1 для второго и т.д.
+      sortGrid(th.cellIndex, th.dataset.type);
+    };
+
+    function sortGrid(colNum, type) {
+      let tbody = grid.querySelector('tbody');
+
+      let rowsArray = Array.from(tbody.rows);
+
+      // compare(a, b) сравнивает две строки, нужен для сортировки
+      let compare;
+
+      switch (type) {
+        case 'number':
+          compare = function(rowA, rowB) {
+            return rowA.cells[colNum].innerHTML - rowB.cells[colNum].innerHTML;
+          };
+          break;
+        case 'string':
+          compare = function(rowA, rowB) {
+            return rowA.cells[colNum].innerHTML > rowB.cells[colNum].innerHTML ? 1 : -1;
+          };
+          break;
+      }
+
+      // сортировка
+      rowsArray.sort(compare);
+
+      tbody.append(...rowsArray);
+    }
+  </script>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      body {
+        height: 2000px;
+        /* добавим body прокрутку, подсказка должна работать и с прокруткой */
+      }
+
+      .tooltip {
+        position: fixed;
+        padding: 10px 20px;
+        border: 1px solid #b3c9ce;
+        border-radius: 4px;
+        text-align: center;
+        font: italic 14px/1.3 sans-serif;
+        color: #333;
+        background: #fff;
+        box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+      }
+    </style>
+  </head>
+
+  <body>
+    <p>ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя</p>
+    <p>ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя</p>
+
+    <button data-tooltip="эта подсказка должна быть длиннее, чем элемент">
+      Короткая кнопка
+    </button>
+    <button data-tooltip="HTML<br>подсказка">Ещё кнопка</button>
+
+    <p>
+      Прокрутите страницу, чтобы кнопки оказались у верхнего края, а затем
+      проверьте, правильно ли выводятся подсказки.
+    </p>
+
+    <script>
+      let tooltipElem;
+
+      document.onmouseover = function (event) {
+        let target = event.target;
+
+        // если у нас есть подсказка...
+        let tooltipHtml = target.dataset.tooltip;
+        if (!tooltipHtml) return;
+
+        // ...создадим элемент для подсказки
+
+        tooltipElem = document.createElement("div");
+        tooltipElem.className = "tooltip";
+        tooltipElem.innerHTML = tooltipHtml;
+        document.body.append(tooltipElem);
+
+        // спозиционируем его сверху от аннотируемого элемента (top-center)
+        let coords = target.getBoundingClientRect();
+
+        let left =
+          coords.left + (target.offsetWidth - tooltipElem.offsetWidth) / 2;
+        if (left < 0) left = 0; // не заезжать за левый край окна
+
+        let top = coords.top - tooltipElem.offsetHeight - 5;
+        if (top < 0) {
+          // если подсказка не помещается сверху, то отображать её снизу
+          top = coords.top + target.offsetHeight + 5;
+        }
+
+        tooltipElem.style.left = left + "px";
+        tooltipElem.style.top = top + "px";
+      };
+
+      document.onmouseout = function (e) {
+        if (tooltipElem) {
+          tooltipElem.remove();
+          tooltipElem = null;
+        }
+      };
+    </script>
+  </body>
+</html>
